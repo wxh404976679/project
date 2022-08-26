@@ -1,5 +1,6 @@
-#python save_dataset.py '{"params.input.1.dir":"./91/1","params.input.2.dir":"/90/2","params.output.dir":"./91","params.selectedcols":["train4_converter_temp"],"params.fillvalue":"0","params.strategy":"value"}'
-from sklearn.preprocessing import StandardScaler
+#python head.py '{"params.input.1.dir":"./6001.pickle","params.output.dir":"./91","params.size":"5","params.SelectedCols":["train4_converter_temp"]}'
+
+from sklearn.model_selection import train_test_split
 import pandas as pd
 import sys
 import os
@@ -15,11 +16,15 @@ if __name__=="__main__":
 
     input1_dir = obj['params.input.1.dir']
     print("input1_dir",input1_dir )
-    df_write = pd.read_pickle(input1_dir)
+    df = pd.read_pickle(input1_dir)
+    size=int(obj['params.size'])
 
+    df=df.head(size)
+
+    print("df shape",df.shape)
     output_dir = obj['params.output.dir']
     os.makedirs(output_dir, exist_ok=True)
     print("output_dir",output_dir)
 
-    df_write.to_csv(output_dir+"/save.csv")
+    df.to_pickle(output_dir+"/1")
     print('successfully')

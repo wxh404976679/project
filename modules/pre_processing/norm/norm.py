@@ -1,4 +1,4 @@
-#python norm.py '{"params.input.1.dir":"./6001.pickle","params.input.2.dir":"/90/2","params.output.dir":"./91","params.selectedcols":["train4_converter_temp"],"params.fillvalue":"0","params.strategy":"value"}'
+#python norm.py '{"params.input.1.dir":"./6001.pickle","params.input.2.dir":"/90/2","params.output.dir":"./91","params.SelectedCols":["train4_converter_temp"],"params.fillvalue":"0","params.strategy":"value"}'
 
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
